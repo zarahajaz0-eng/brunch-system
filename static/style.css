@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8dfe5;
+  color: #3d2b1f;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.card,
+.menu-section {
+  background-color: #fff8f8;
+  padding: 18px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+button {
+  background-color: #4b2e2e;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  margin: 5px 3px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #6a4141;
+}
+
+.categories {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.hidden {
+  display: none;
+}
+
+#confirmation {
+  font-weight: bold;
+  margin-top: 15px;
+  color: green;
+}
+
+/* FORSIDE */
+
+.frontpage {
+  background-image: url("/static/brunch.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  max-width: 100%;
+  padding: 0;
+}
+
+.overlay {
+  background-color: rgba(248, 223, 229, 0.85);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 50px;
+  color: #4b2e2e;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 22px;
+  color: #4b2e2e;
+  margin-bottom: 30px;
+}
+
+.overlay button {
+  padding: 15px 40px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  background-color: #4b2e2e;
+  color: white;
+  cursor: pointer;
+}
+
+.overlay button:hover {
+  background-color: #6a4141;
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wulff & Konstali Bestilling</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Wulff & Konstali</h1>
+    <p>Bordnummer: 5</p>
+  </header>
+
+  <section class="card">
+    <h2>Vælg brunch</h2>
+    <p>Vælg mellem 5 retter for 168 kr. eller 7 retter for 198 kr.</p>
+
+    <button onclick="setMenu(5, 168)">5 retter - 168 kr.</button>
+    <button onclick="setMenu(7, 198)">7 retter - 198 kr.</button>
+
+    <p id="menuValg">Du har ikke valgt endnu.</p>
+    <p id="counter">0 / 0 retter valgt</p>
+  </section>
+
+  <section class="categories">
+    <button onclick="showCategory('brunch')">Brunch</button>
+    <button onclick="showCategory('drinks')">Kolde drikke</button>
+    <button onclick="showCategory('varme')">Varme drikke</button>
+    <button onclick="showCategory('extra')">Ekstra</button>
+  </section>
+
+  <section id="brunch" class="menu-section">
+    <h2>Brunch</h2>
+
+    <h3>Brød/wienerbrød fra eget bageri</h3>
+
+    <label><input type="checkbox" value="Brødkurv m. rugbrød og surdejsbrød" onchange="addItem(this)"> Brødkurv m. rugbrød + surdejsbrød</label>
+    <label><input type="checkbox" value="Kanelsnegl" onchange="addItem(this)"> Kanelsnegl</label>
+    <label><input type="checkbox" value="Kardemommesnurre" onchange="addItem(this)"> Kardemommesnurre</label>
+    <label><input type="checkbox" value="Croissant" onchange="addItem(this)"> Croissant</label>
+    <label><input type="checkbox" value="Mandelcroissant m. remonce" onchange="addItem(this)"> Mandelcroissant m. remonce</label>
+    <label><input type="checkbox" value="Tebirkessnurre m. remonce og sesam" onchange="addItem(this)"> Tebirkessnurre m. remonce + sesam</label>
+    <label><input type="checkbox" value="Nutellasnegl m. hasselnøddeflager" onchange="addItem(this)"> Nutellasnegl m. hasselnøddeflager</label>
+
+    <h3>Økologiske æg</h3>
+
+    <label><input type="checkbox" value="2 spejlæg m. ramsløgssalt" onchange="addItem(this)"> 2 spejlæg m. ramsløgssalt</label>
+    <label><input type="checkbox" value="Røræg m. revet pecorino-ost og purløg" onchange="addItem(this)"> Røræg m. revet pecorino-ost + purløg</label>
+
+    <h3>Mejeri</h3>
+
+    <label><input type="checkbox" value="Øko. græsk style yoghurt m. rabarberkompot og mandel-græskarkernegranola" onchange="addItem(this)"> Øko. græsk style yoghurt m. rabarberkompot + mandel-græskarkernegranola</label>
+    <label><input type="checkbox" value="Gl. Knas-ost m. jordbær-citronmarmelade" onchange="addItem(this)"> Gl. Knas-ost m. jordbær-citronmarmelade</label>
+
+    <h3>Frugt/grønt</h3>
+
+    <label><input type="checkbox" value="Piña colada smoothie bowl m. ananas, kokos, banan og mandelmylk" onchange="addItem(this)"> Piña colada smoothie bowl m. ananas + kokos + banan + mandelmylk</label>
+    <label><input type="checkbox" value="Grapefrugt m. myntecreme og sort sesam" onchange="addItem(this)"> Grapefrugt m. myntecreme + sort sesam</label>
+    <label><input type="checkbox" value="Greenie gazpacho m. agurk, ananas, mynte, spinat, selleri og rosmarincroutoner" onchange="addItem(this)"> Greenie gazpacho m. agurk + ananas + mynte + spinat + selleri + rosmarincroutoner</label>
+    <label><input type="checkbox" value="Cherrytomater m. ramsløgssaltet burrata og frisk oregano" onchange="addItem(this)"> Cherrytomater m. ramsløgssaltet burrata + frisk oregano</label>
+    <label><input type="checkbox" value="Cæsarsalat a la W&K m. parmesanflager og rosmarincroutoner" onchange="addItem(this)"> Cæsarsalat a la W&K m. parmesanflager + rosmarincroutoner</label>
+
+    <h3>Kød/fisk</h3>
+
+    <label><input type="checkbox" value="Koldrøget laks m. dildmayo og rugcrumble" onchange="addItem(this)"> Koldrøget laks m. dildmayo + rugcrumble</label>
+    <label><input type="checkbox" value="Teriyaki-chicken wings fra Hopballe Mølle m. ingefær, sesam og purløg" onchange="addItem(this)"> Teriyaki-chicken wings fra Hopballe Mølle m. ingefær + sesam + purløg</label>
+    <label><input type="checkbox" value="Stegt bacon m. frisk timian" onchange="addItem(this)"> Stegt bacon m. frisk timian</label>
+    <label><input type="checkbox" value="Stegte Mini Age-pølser af okse og gris" onchange="addItem(this)"> Stegte “Mini Age”-pølser af okse + gris</label>
+    <label><input type="checkbox" value="Croque monsieur m. bechamelsauce, ost og skinke" onchange="addItem(this)"> Croque monsieur m. bechamelsauce + ost + skinke</label>
+
+    <h3>Feelgood-favoritter</h3>
+
+    <label><input type="checkbox" value="Overnight oats m. chia, granatæble og blåbær-boghvedeknas" onchange="addItem(this)"> Overnight oats m. chia + granatæble + blåbær-boghvedeknas</label>
+    <label><input type="checkbox" value="Rabarber cream pie på mandelbund m. sort sesam-rugcrumble og citrontimian" onchange="addItem(this)"> Rabarber cream pie på mandelbund m. sort sesam-rugcrumble + citrontimian</label>
+    <label><input type="checkbox" value="Birkesvaffel m. vanilje-citronflødeskum og sød sommerbærknas" onchange="addItem(this)"> Birkesvaffel m. vanilje-citronflødeskum + sød sommerbærknas</label>
+  </section>
+
+  <section id="drinks" class="menu-section hidden">
+    <h2>Kolde drikke</h2>
+
+    <h3>Lemonade</h3>
+
+    <label><input type="checkbox" value="Citron-limelemonade m. frisk mynte - 46 kr." onchange="addDrink(this)"> Citron-limelemonade m. frisk mynte - 46 kr.</label>
+    <label><input type="checkbox" value="Rabarberlemonade m. frisk mynte - 48 kr." onchange="addDrink(this)"> Rabarberlemonade m. frisk mynte - 48 kr.</label>
+    <label><input type="checkbox" value="Matchalemonade m. lime og citron - 59 kr." onchange="addDrink(this)"> Matchalemonade m. lime + citron - 59 kr.</label>
+
+    <h3>Isdrikke</h3>
+
+    <label><input type="checkbox" value="Islatte m. hjemmelavet karamelsirup - 46 kr." onchange="addDrink(this)"> Islatte m. hjemmelavet karamelsirup - 46 kr.</label>
+    <label><input type="checkbox" value="Isamericano - 46 kr." onchange="addDrink(this)"> Isamericano - 46 kr.</label>
+    <label><input type="checkbox" value="Ischokolade på mørk Callebaut og mælk - 52 kr." onchange="addDrink(this)"> Ischokolade på mørk Callebaut + mælk - 52 kr.</label>
+    <label><input type="checkbox" value="Matcha-islatte m. havredrik - 59 kr." onchange="addDrink(this)"> Matcha-islatte m. havredrik - 59 kr.</label>
+    <label><input type="checkbox" value="Jordbær-matcha-islatte m. hjemmelavet kompot - 69 kr." onchange="addDrink(this)"> Jordbær-matcha-islatte m. hjemmelavet kompot - 69 kr.</label>
+
+    <h3>Juice og sodavand</h3>
+
+    <label><input type="checkbox" value="W&K appelsinjuice 50 cl. - 56 kr." onchange="addDrink(this)"> W&K appelsinjuice 50 cl. - 56 kr.</label>
+    <label><input type="checkbox" value="Øko. kombucha - 65 kr." onchange="addDrink(this)"> Øko. kombucha - 65 kr.</label>
+    <label><input type="checkbox" value="Gul juice: gulerod, æble og ingefær - 46 kr." onchange="addDrink(this)"> Gul juice: gulerod + æble + ingefær - 46 kr.</label>
+    <label><input type="checkbox" value="Rød juice: rødbede, æble og citron - 46 kr." onchange="addDrink(this)"> Rød juice: rødbede + æble + citron - 46 kr.</label>
+    <label><input type="checkbox" value="Grøn juice: grønkål, æble, agurk, selleri og citron - 46 kr." onchange="addDrink(this)"> Grøn juice: grønkål + æble + agurk + selleri + citron - 46 kr.</label>
+    <label><input type="checkbox" value="Ingefærshot 6 cl. - 28 kr." onchange="addDrink(this)"> Ingefærshot 6 cl. - 28 kr.</label>
+    <label><input type="checkbox" value="Coca Cola / Coca Cola Zero 33 cl. - 35 kr." onchange="addDrink(this)"> Coca Cola / Coca Cola Zero 33 cl. - 35 kr.</label>
+    <label><input type="checkbox" value="W&K kildevand med/uden brus 43 cl. - 28 kr." onchange="addDrink(this)"> W&K kildevand med / uden brus 43 cl. - 28 kr.</label>
+  </section>
+
+  <section id="varme" class="menu-section hidden">
+    <h2>Varme drikke</h2>
+
+    <label><input type="checkbox" value="Caffe latte - 44 kr." onchange="addDrink(this)"> Caffe latte - 44 kr.</label>
+    <label><input type="checkbox" value="Cappuccino - 44 kr." onchange="addDrink(this)"> Cappuccino - 44 kr.</label>
+    <label><input type="checkbox" value="Espresso - 32 kr." onchange="addDrink(this)"> Espresso - 32 kr.</label>
+    <label><input type="checkbox" value="Cortado - 35 kr." onchange="addDrink(this)"> Cortado - 35 kr.</label>
+    <label><input type="checkbox" value="Flat white - 46 kr." onchange="addDrink(this)"> Flat white - 46 kr.</label>
+    <label><input type="checkbox" value="Americano - 40 kr." onchange="addDrink(this)"> Americano - 40 kr.</label>
+    <label><input type="checkbox" value="Filterkaffe - 37 kr." onchange="addDrink(this)"> Filterkaffe - 37 kr.</label>
+    <label><input type="checkbox" value="Te fra A. C. Perchs Thehandel - 40 kr." onchange="addDrink(this)"> Te fra A. C. Perchs Thehandel - 40 kr.</label>
+    <label><input type="checkbox" value="Varm chokolade på mørk Callebaut m. flødeskum - 52 kr." onchange="addDrink(this)"> Varm chokolade på mørk Callebaut m. flødeskum - 52 kr.</label>
+    <label><input type="checkbox" value="Hjemmelavet chai m. øko. Ceylon-te og varme krydderier - 49 kr." onchange="addDrink(this)"> Hjemmelavet chai m. øko. Ceylon-te + varme krydderier - 49 kr.</label>
+    <label><input type="checkbox" value="Babycino: lun mælk m. mælkeskum og kakaodrys - 24 kr." onchange="addDrink(this)"> Babycino: lun mælk m. mælkeskum + kakaodrys - 24 kr.</label>
+    <label><input type="checkbox" value="Matcha latte m. havredrik - 59 kr." onchange="addDrink(this)"> Matcha latte m. havredrik - 59 kr.</label>
+  </section>
+
+  <section id="extra" class="menu-section hidden">
+    <h2>Ekstra</h2>
+
+    <label><input type="checkbox" value="Ketchup" onchange="addDrink(this)"> Ketchup</label>
+    <label><input type="checkbox" value="Mimosa - 65 kr." onchange="addDrink(this)"> Mimosa - 65 kr.</label>
+    <label><input type="checkbox" value="Mikkeller / Nørrebro Bryghus - 56 kr." onchange="addDrink(this)"> Mikkeller / Nørrebro Bryghus - 56 kr.</label>
+    <label><input type="checkbox" value="Hvidvin / rosé - 85 kr." onchange="addDrink(this)"> Hvidvin / rosé - 85 kr.</label>
+    <label><input type="checkbox" value="Crémant - 368 kr." onchange="addDrink(this)"> Crémant - 368 kr.</label>
+  </section>
+
+  <section class="card">
+    <h2>Din ordre</h2>
+    <p id="orderText">Du har ikke valgt noget endnu.</p>
+    <ul id="orderList"></ul>
+
+    <label for="note">Note til køkkenet:</label>
+    <textarea id="note" placeholder="Fx allergi, ingen løg eller særlige ønsker"></textarea>
+
+    <button onclick="confirmOrder()">Bekræft bestilling</button>
+  </section>
+
+  <script>
+  let selectedItems = [];
+  let selectedDrinks = [];
+  let maxItems = 0;
+  let price = 0;
+
+  function setMenu(items, menuPrice) {
+    maxItems = items;
+    price = menuPrice;
+    selectedItems = [];
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.checked = false;
+    });
+
+    document.getElementById("menuValg").innerText =
+      "Du har valgt " + items + " retter til " + menuPrice + " kr.";
+
+    updateOrder();
+  }
+
+  function showCategory(categoryId) {
+    document.querySelectorAll(".menu-section").forEach(section => {
+      section.classList.add("hidden");
+    });
+
+    document.getElementById(categoryId).classList.remove("hidden");
+  }
+
+  function addItem(checkbox) {
+    if (checkbox.checked) {
+      if (maxItems === 0) {
+        alert("Vælg først om du vil have 5 eller 7 retter.");
+        checkbox.checked = false;
+        return;
+      }
+
+      if (selectedItems.length >= maxItems) {
+        alert("Du har valgt det maksimale antal retter.");
+        checkbox.checked = false;
+        return;
+      }
+
+      selectedItems.push(checkbox.value);
+    } else {
+      selectedItems = selectedItems.filter(item => item !== checkbox.value);
+    }
+
+    updateOrder();
+  }
+
+  function addDrink(checkbox) {
+    if (checkbox.checked) {
+      selectedDrinks.push(checkbox.value);
+    } else {
+      selectedDrinks = selectedDrinks.filter(drink => drink !== checkbox.value);
+    }
+
+    updateOrder();
+  }
+
+  function updateOrder() {
+    const list = document.getElementById("orderList");
+    const orderText = document.getElementById("orderText");
+    const counter = document.getElementById("counter");
+
+    list.innerHTML = "";
+    counter.innerText = selectedItems.length + " / " + maxItems + " retter valgt";
+
+    if (selectedItems.length === 0 && selectedDrinks.length === 0) {
+      orderText.innerText = "Du har ikke valgt noget endnu.";
+      return;
+    }
+
+    orderText.innerText = "Valgte retter og drikkevarer:";
+
+    selectedItems.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    });
+
+    selectedDrinks.forEach(drink => {
+      const li = document.createElement("li");
+      li.textContent = drink;
+      list.appendChild(li);
+    });
+  }
+
+  function confirmOrder() {
+    if (maxItems === 0) {
+      alert("Vælg først om du vil have 5 eller 7 retter.");
+      return;
+    }
+
+    if (selectedItems.length < maxItems) {
+      alert("Du mangler at vælge " + (maxItems - selectedItems.length) + " retter.");
+      return;
+    }
+
+    const orderData = {
+      table_number: "5",
+      items: selectedItems,
+      drinks: selectedDrinks,
+      note: document.getElementById("note").value
+    };
+
+    fetch("/send-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(orderData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.body.innerHTML = `
+        <section class="confirmation-card">
+          <h1>Tak for din bestilling</h1>
+          <p>Din ordre er sendt til køkkenet.</p>
+          <p>Køkkenet går i gang med ordren hurtigst muligt.</p>
+
+          <button onclick="window.location.href='/'">
+            Tilbage til forsiden
+          </button>
+        </section>
+      `;
+    });
+  }
+</script>

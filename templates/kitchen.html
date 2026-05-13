@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Køkken - Ordrer</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Køkkenoversigt</h1>
+    <p>Her kan personalet se indkomne bestillinger.</p>
+  </header>
+
+  {% for order in orders %}
+    <section class="card">
+
+      <h2>Bord {{ order.table_number }}</h2>
+
+      <p>
+        <strong>Status:</strong>
+        {{ order.status }}
+      </p>
+
+      <p>
+        <strong>Tidspunkt:</strong>
+        {{ order.created_at.strftime("%d/%m/%Y %H:%M") }}
+      </p>
+
+      <h3>Retter</h3>
+      <p>{{ order.items }}</p>
+
+      <h3>Drikkevarer</h3>
+      <p>{{ order.drinks }}</p>
+
+      <h3>Note til køkkenet</h3>
+      <p>{{ order.note }}</p>
+
+      <button onclick="finishOrder({{ order.id }})">
+        Færdig
+      </button>
+
+    </section>
+  {% endfor %}
+
+  <script>
+    function finishOrder(orderId) {
+
+      fetch("/finish-order/" + orderId, {
+        method: "POST"
+      })
+
+      .then(response => response.json())
+
+      .then(data => {
+        location.reload();
+      });
+
+    }
+  </script>
+
+</body>
+</html>
