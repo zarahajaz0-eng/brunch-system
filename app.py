@@ -59,6 +59,10 @@ def finish_order(order_id):
     db.session.commit()
     return jsonify({"message": "Ordren er færdig"})
 
+@app.route("/database")
+def database():
+    orders = Order.query.order_by(Order.id.desc()).all()
+    return render_template("database.html", orders=orders)
 
 if __name__ == "__main__":
     with app.app_context():

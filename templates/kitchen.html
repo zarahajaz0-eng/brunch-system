@@ -36,7 +36,7 @@
       <h3>Note til køkkenet</h3>
       <p>{{ order.note }}</p>
 
-      <button onclick="finishOrder({{ order.id }})">
+      <button type="button" onclick="finishOrder('{{ order.id }}')">
         Færdig
       </button>
 

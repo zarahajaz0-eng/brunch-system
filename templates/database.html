@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database</title>
+</head>
+<body>
+
+<h1>Alle ordrer</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Bord</th>
+        <th>Mad</th>
+        <th>Drikke</th>
+        <th>Status</th>
+    </tr>
+
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.table_number }}</td>
+        <td>{{ order.items }}</td>
+        <td>{{ order.drinks }}</td>
+        <td>{{ order.status }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
