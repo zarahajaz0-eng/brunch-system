@@ -245,13 +245,15 @@
       return;
     }
 
-    const orderData = {
-      table_number: "5",
-      items: selectedItems,
-      drinks: selectedDrinks,
-      note: document.getElementById("note").value
-    };
+   const params = new URLSearchParams(window.location.search);
+const tableNumber = params.get("table") || "5";
 
+const orderData = {
+    table_number: tableNumber,
+    items: selectedItems,
+    drinks: selectedDrinks,
+    note: document.getElementById("note").value
+};
     fetch("/send-order", {
       method: "POST",
       headers: {
