@@ -11,7 +11,7 @@
 
   <header>
     <h1>Wulff & Konstali</h1>
-    <p>Bordnummer: 5</p>
+    <p id="table-display">Bordnummer: </p>
   </header>
 
   <section class="card">
@@ -246,6 +246,7 @@
     }
 
 const tableNumber = new URL(window.location.href).searchParams.get("table") ?? "5";
+document.getElementById("table-display").innerText = "Bordnummer: " + tableNumber;
 
 const orderData = {
     table_number: tableNumber,
