@@ -245,8 +245,7 @@
       return;
     }
 
-   const params = new URLSearchParams(window.location.search);
-const tableNumber = params.get("table") || "5";
+const tableNumber = new URL(window.location.href).searchParams.get("table") ?? "5";
 
 const orderData = {
     table_number: tableNumber,
