@@ -246,7 +246,9 @@
     }
 
 const tableNumber = new URL(window.location.href).searchParams.get("table") ?? "5";
-document.getElementById("table-display").innerText = "Bordnummer: " + tableNumber;
+window.onload = function () {
+    document.getElementById("table-display").innerText = "Bordnummer: " + tableNumber;
+};
 
 const orderData = {
     table_number: tableNumber,
